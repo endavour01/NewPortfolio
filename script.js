@@ -1,51 +1,106 @@
-const sections = document.querySelectorAll(".section");
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
 const navTabs = document.querySelectorAll(".nav-tab");
+const sections = document.querySelectorAll(".section");
 
 
-const observer = new IntersectionObserver(
+/* -----------------------------------------
+   CLICK → SMOOTH SCROLL
+----------------------------------------- */
 
-    (entries) => {
+navTabs.forEach((tab) => {
 
-        entries.forEach((entry) => {
+    tab.addEventListener("click", (event) => {
 
-            if (entry.isIntersecting) {
+        event.preventDefault();
 
-                const sectionId = entry.target.id;
+        const targetId = tab.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
 
+        if (!targetSection) return;
 
-                navTabs.forEach((tab) => {
+        const navbarHeight = 100;
 
-                    tab.classList.remove("active");
+        const targetPosition =
+            targetSection.getBoundingClientRect().top +
+            window.scrollY -
+            navbarHeight;
 
-
-                    if (
-                        tab.dataset.section === sectionId
-                    ) {
-
-                        tab.classList.add("active");
-
-                    }
-
-                });
-
-            }
-
+        window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
         });
 
-    },
-
-    {
-        threshold: 0.45
-    }
-
-);
-
-
-sections.forEach((section) => {
-
-    observer.observe(section);
+    });
 
 });
+
+
+/* -----------------------------------------
+   SCROLL → ACTIVE NAVIGATION
+----------------------------------------- */
+
+function updateActiveNav() {
+
+    const scrollPosition =
+        window.scrollY + window.innerHeight * 0.35;
+
+    let currentSection = "";
+
+    sections.forEach((section) => {
+
+        const sectionTop = section.offsetTop;
+        const sectionBottom =
+            sectionTop + section.offsetHeight;
+
+        if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionBottom
+        ) {
+            currentSection = section.id;
+        }
+
+    });
+
+
+    /* If we're at the very bottom,
+       activate the last section */
+
+    if (
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 50
+    ) {
+        currentSection = sections[sections.length - 1].id;
+    }
+
+
+    navTabs.forEach((tab) => {
+
+        const sectionId =
+            tab.getAttribute("data-section");
+
+        tab.classList.toggle(
+            "active",
+            sectionId === currentSection
+        );
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateActiveNav,
+    { passive: true }
+);
+
+window.addEventListener(
+    "load",
+    updateActiveNav
+);
 
 
 

@@ -729,79 +729,229 @@ em {
 
     margin-bottom: 12px;
 }
-
-
-/*PROJECTS*/
+/* =========================================================
+   PROJECTS
+========================================================= */
 
 .projects-grid {
-
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
 }
 
 
+/* =========================================
+   PROJECT CARD
+========================================= */
+
 .project-card {
+    position: relative;
+    min-height: 520px;
 
-    min-height: 420px;
-
-    padding: 30px;
+    padding: 25px;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: space-between;
 
-    border:
-        1px solid rgba(255,255,255,.11);
+    overflow: hidden;
 
-    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 26px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.07),
+            rgba(255,255,255,.075),
             rgba(255,255,255,.025)
         );
 
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.06);
+
     transition:
-        .5s cubic-bezier(.2,.8,.2,1);
-
-    cursor: pointer;
+        transform .5s cubic-bezier(.2,.8,.2,1),
+        border-color .4s ease,
+        background .4s ease;
 }
-
 
 .project-card:hover {
-
-    transform:
-        translateY(-10px);
+    transform: translateY(-8px);
 
     border-color:
-        rgba(255,255,255,.3);
+        rgba(255,255,255,.22);
 
     background:
-        rgba(255,255,255,.08);
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.10),
+            rgba(255,255,255,.035)
+        );
 }
 
+
+/* =========================================
+   TOP
+========================================= */
+
+.project-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .project-number {
-
     font-size: 11px;
+    font-family: "SFMono-Regular", Consolas, monospace;
+    color: rgba(255,255,255,.3);
+}
 
-    color:
-        rgba(255,255,255,.3);
+.project-arrow {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 50%;
+
+    color: rgba(255,255,255,.55);
+
+    transition: .35s ease;
+}
+
+.project-card:hover .project-arrow {
+    color: #fff;
+    background: rgba(255,255,255,.1);
+
+    transform:
+        translate(3px,-3px);
 }
 
 
-.project-type {
+/* =========================================
+   VISUAL CONTAINER
+========================================= */
 
-    margin-bottom: 12px;
+.project-visual {
+    height: 220px;
+    margin: 25px 0;
 
-    font-size: 9px;
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 20px;
+
+    background: rgba(0,0,0,.25);
+}
+
+
+/* =========================================
+   DEFAULT VISUALS
+========================================= */
+
+.psyduck-art,
+.shadow-mesh,
+.sports-art,
+.campus-art {
+
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 1;
+
+    transition:
+        opacity .5s ease,
+        transform .7s cubic-bezier(.2,.8,.2,1),
+        filter .5s ease;
+}
+
+
+/* =========================================
+   HOVER INFORMATION
+========================================= */
+
+.project-hover-info {
+
+    position: absolute;
+
+    left: 35px;
+    right: 35px;
+
+    top: 50%;
+
+    transform:
+        translateY(-42%)
+        translateX(-15px);
+
+    opacity: 0;
+
+    z-index: 20;
+
+    transition:
+        opacity .45s ease,
+        transform .6s cubic-bezier(.2,.8,.2,1);
+}
+
+.project-hover-info h4 {
+    margin: 0;
+
+    font-size: 28px;
+    line-height: 1;
+
+    letter-spacing: -1.5px;
+
+    font-weight: 700;
+
+    color: #fff;
+}
+
+.project-divider {
+    width: 45px;
+    height: 1px;
+
+    margin: 15px 0;
+
+    background:
+        rgba(255,255,255,.3);
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition:
+        transform .5s ease .15s;
+}
+
+.project-hover-info p {
+    max-width: 310px;
+
+    margin: 0;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,.55);
+}
+
+.project-hover-info span {
+    display: block;
+
+    margin-top: 18px;
+
+    font-size: 8px;
 
     letter-spacing: 3px;
 
@@ -810,40 +960,411 @@ em {
 }
 
 
-.project-card h3 {
+/* =========================================
+   HOVER TRANSITION
+========================================= */
 
-    font-size: 28px;
+.project-card:hover
+.psyduck-art,
 
-    margin-bottom: 18px;
-}
+.project-card:hover
+.shadow-mesh,
 
+.project-card:hover
+.sports-art,
 
-.project-card p {
+.project-card:hover
+.campus-art {
 
-    color:
-        rgba(255,255,255,.5);
-
-    line-height: 1.6;
-}
-
-
-.project-arrow {
-
-    font-size: 25px;
-
-    align-self: flex-end;
-
-    transition:
-        .3s ease;
-}
-
-
-.project-card:hover .project-arrow {
+    opacity: 0;
 
     transform:
-        translate(5px,-5px);
+        scale(.55);
+
+    filter:
+        blur(8px);
 }
 
+.project-card:hover
+.project-hover-info {
+
+    opacity: 1;
+
+    transform:
+        translateY(-50%)
+        translateX(0);
+}
+
+.project-card:hover
+.project-divider {
+
+    transform:
+        scaleX(1);
+}
+
+
+/* =========================================================
+   PSYDUCK
+========================================================= */
+
+.psyduck-visual {
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,205,70,.11),
+            rgba(0,0,0,.34) 70%
+        );
+}
+
+.psyduck-question {
+
+    position: relative;
+    z-index: 3;
+
+    font-size: 100px;
+    font-weight: 800;
+
+    color:
+        rgba(255,255,255,.92);
+
+    line-height: 1;
+
+    text-shadow:
+        0 0 45px
+        rgba(255,210,70,.3);
+}
+
+.psyduck-ring {
+
+    position: absolute;
+
+    width: 175px;
+    height: 175px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,220,100,.16);
+}
+
+.ring-one {
+    transform: rotate(25deg);
+}
+
+.ring-two {
+
+    width: 215px;
+    height: 215px;
+
+    border-style: dashed;
+
+    opacity: .4;
+
+    transform:
+        rotate(-20deg);
+}
+
+
+/* =========================================================
+   SHADOWNET
+========================================================= */
+
+.shadownet-visual {
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(80,100,255,.10),
+            rgba(0,0,0,.32) 70%
+        );
+}
+
+.mesh-network {
+
+    position: relative;
+
+    width: 190px;
+    height: 140px;
+}
+
+.mesh-network::before,
+.mesh-network::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 18px;
+
+    border:
+        1px solid
+        rgba(120,140,255,.35);
+}
+
+.mesh-network::before {
+    transform: rotate(30deg);
+}
+
+.mesh-network::after {
+    transform: rotate(-30deg);
+}
+
+.mesh-network span {
+
+    position: absolute;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background:
+        #8795ff;
+
+    box-shadow:
+        0 0 16px
+        rgba(100,120,255,.8);
+}
+
+.mesh-network span:nth-child(1) {
+    left: 0;
+    top: 50%;
+}
+
+.mesh-network span:nth-child(2) {
+    left: 40%;
+    top: 0;
+}
+
+.mesh-network span:nth-child(3) {
+    right: 0;
+    top: 50%;
+}
+
+.mesh-network span:nth-child(4) {
+    left: 40%;
+    bottom: 0;
+}
+
+.mesh-network span:nth-child(5) {
+
+    left: 45%;
+    top: 45%;
+
+    width: 15px;
+    height: 15px;
+
+    background:
+        #aab4ff;
+
+    box-shadow:
+        0 0 28px
+        rgba(120,140,255,.95);
+}
+
+
+/* =========================================================
+   SPORTS OTG
+========================================================= */
+
+.sports-visual {
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(180,255,20,.09),
+            rgba(0,0,0,.35) 70%
+        );
+}
+
+.sports-circle {
+
+    position: relative;
+
+    width: 115px;
+    height: 115px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        2px solid
+        #00a064;
+
+    border-radius: 50%;
+
+    color:
+        #b4ff14;
+
+    font-size: 62px;
+    font-weight: 800;
+
+    box-shadow:
+        0 0 45px
+        rgba(180,255,20,.12);
+
+    z-index: 3;
+}
+
+.sports-orbit {
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    border:
+        1px solid
+        rgba(180,255,20,.16);
+
+    border-radius: 50%;
+}
+
+.orbit-a {
+
+    transform:
+        rotate(25deg)
+        scaleX(1.5);
+}
+
+.orbit-b {
+
+    width: 210px;
+    height: 210px;
+
+    border-style: dashed;
+
+    opacity: .45;
+
+    transform:
+        rotate(-25deg)
+        scaleX(1.35);
+}
+
+
+/* =========================================================
+   FIX MY CAMPUS
+========================================================= */
+
+.campus-visual {
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,255,255,.08),
+            rgba(0,0,0,.38) 70%
+        );
+}
+
+.campus-cross {
+
+    width: 90px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.35);
+
+    border-radius: 50%;
+
+    font-size: 48px;
+
+    color: #fff;
+
+    box-shadow:
+        0 0 45px
+        rgba(255,255,255,.08);
+
+    z-index: 4;
+}
+
+.campus-radar {
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius: 50%;
+}
+
+.radar-one {
+
+    width: 150px;
+    height: 150px;
+}
+
+.radar-two {
+
+    width: 210px;
+    height: 210px;
+
+    border-style: dashed;
+
+    opacity: .45;
+}
+
+
+/* =========================================
+   PROJECT TITLE
+========================================= */
+
+.project-info {
+    padding-top: 5px;
+}
+
+.project-info h3 {
+
+    margin: 0;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    letter-spacing: -1px;
+
+    color: #fff;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .project-hover-info {
+        left: 25px;
+        right: 25px;
+    }
+
+    .project-hover-info h4 {
+        font-size: 24px;
+    }
+
+    .project-hover-info p {
+        font-size: 12px;
+    }
+}
 
 /*SOCIALS*/
 
