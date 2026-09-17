@@ -1,14 +1,10 @@
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/*NAVIGATION*/
 
 const navTabs = document.querySelectorAll(".nav-tab");
 const sections = document.querySelectorAll(".section");
 
 
-/* -----------------------------------------
-   CLICK → SMOOTH SCROLL
------------------------------------------ */
+/* CLICK → SMOOTH SCROLL*/
 
 navTabs.forEach((tab) => {
 
