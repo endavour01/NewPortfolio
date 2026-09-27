@@ -49,13 +49,18 @@
             </h1>
 
             <p class="hero-description">
-                I build digital experiences that sit somewhere between technology, design and curiosity.
+                I build web and mobile projects, with a focus on useful features and interfaces that are easy to use.
             </p>
 
-            <a href="#work" class="hero-button">
-                Explore my work
-                <span>↗</span>
-            </a>
+            <div class="hero-actions">
+                <a href="#work" class="hero-button primary">
+                    View projects
+                    <span>↗</span>
+                </a>
+                <a href="mailto:imvikalpsoni@gmail.com" class="hero-button secondary">
+                    Email me
+                </a>
+            </div>
         </div>
 
         <div class="scroll-indicator">
@@ -77,13 +82,42 @@
             <div class="about-grid">
                 <div class="about-text">
                     <p>
-                        I'm an aspiring Computer Science engineer interested in building useful, simple and visually
-                        engaging digital products.
+                        I'm a computer science engineer interested in building software that solves everyday problems.
+                        I enjoy taking an idea from an early sketch to a working product.
                     </p>
                     <p>
-                        I enjoy exploring web development, programming, cloud technologies and turning ideas into working
-                        projects.
+                        Most of my work is in web and mobile development. I care about clear interfaces, useful features,
+                        and the small details that make a product easier to use.
                     </p>
+
+                    <div class="skills-list" aria-label="Skills">
+                        <span>Web Development</span>
+                        <span>UI / UX</span>
+                        <span>Cloud</span>
+                        <span>Linux</span>
+                        <span>Product Thinking</span>
+                    </div>
+
+                    <div class="personal-note">
+                        <div class="personal-note-heading">
+                            <span class="personal-note-mark" aria-hidden="true">✦</span>
+                            <div>
+                                <span class="personal-note-label">BEYOND THE SCREEN</span>
+                                <h3>Curious by nature.</h3>
+                            </div>
+                        </div>
+                        <p>
+                            In my own time, I read philosophy, learn about psychology, and head out on my bike—sometimes
+                            on a solo trip. I also enjoy meeting people with different perspectives and learning about spirituality.
+                        </p>
+                        <div class="interest-tags" aria-label="Personal interests">
+                            <span>Philosophy</span>
+                            <span>Human psychology</span>
+                            <span>Solo travel</span>
+                            <span>Motorcycling</span>
+                            <span>Spirituality</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="about-card">
@@ -100,7 +134,7 @@
                         <p class="output">Web · Cloud · Linux · Technology</p>
 
                         <p><span class="green">$</span> status</p>
-                        <p class="output">Always learning...</p>
+                        <p class="output">Building, testing, learning.</p>
                     </div>
                 </div>
             </div>
@@ -117,7 +151,7 @@
             </div>
 
             <div class="projects-grid">
-                <article class="project-card project-psyduck">
+                <article class="project-card project-psyduck" data-project="psyduck" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View Psyduck case study">
                     <div class="project-top">
                         <span class="project-number">01</span>
                         <span class="project-arrow">↗</span>
@@ -139,7 +173,7 @@
                             <h4>PSYDUCK</h4>
                             <div class="project-divider"></div>
                             <p>
-                                Trivia and word game with quick challenges and simple gameplay.
+                                A mobile trivia and word game built around short challenges and quick rounds.
                             </p>
                             <span>GOOGLE PLAY · STORE LISTING</span>
                         </div>
@@ -147,10 +181,17 @@
 
                     <div class="project-info">
                         <h3>Psyduck</h3>
+                        <div class="project-meta">
+                            <span>Trivia</span>
+                            <span>Game UX</span>
+                            <span>JavaScript</span>
+                            <span>Android Studio</span>
+                            <span>Google Play Console</span>
+                        </div>
                     </div>
                 </article>
 
-                <article class="project-card project-shadownet">
+                <article class="project-card project-shadownet" data-project="shadownet" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View ShadowNet case study">
                     <div class="project-top">
                         <span class="project-number">02</span>
                         <span class="project-arrow">↗</span>
@@ -170,17 +211,23 @@
                         <div class="project-hover-info">
                             <h4>SHADOWNET</h4>
                             <div class="project-divider"></div>
-                            <p>Offline messaging over Bluetooth + Wi-Fi.</p>
+                            <p>A project dedicated to the Indian Army, exploring offline messaging for shadow zones where regular networks may be unavailable.</p>
                             <span>COMMUNICATION · MESH</span>
                         </div>
                     </div>
 
                     <div class="project-info">
                         <h3>ShadowNet</h3>
+                        <div class="project-meta">
+                            <span>Messaging</span>
+                            <span>Bluetooth</span>
+                            <span>Mesh</span>
+                            <span>Indian Army</span>
+                        </div>
                     </div>
                 </article>
 
-                <article class="project-card project-sports">
+                <article class="project-card project-sports" data-project="sports" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View Sports OTG case study">
                     <div class="project-top">
                         <span class="project-number">03</span>
                         <span class="project-arrow">↗</span>
@@ -197,7 +244,7 @@
                             <h4>SPORTS OTG</h4>
                             <div class="project-divider"></div>
                             <p>
-                                A platform for discovering and booking sports facilities and turf grounds.
+                                A sports platform for finding local facilities and booking turf time.
                             </p>
                             <span>SPORTS · BOOKING · TURF</span>
                         </div>
@@ -205,10 +252,15 @@
 
                     <div class="project-info">
                         <h3>Sports OTG</h3>
+                        <div class="project-meta">
+                            <span>Booking</span>
+                            <span>Sports</span>
+                            <span>UX</span>
+                        </div>
                     </div>
                 </article>
 
-                <article class="project-card project-campus">
+                <article class="project-card project-campus" data-project="campus" tabindex="0" role="button" aria-haspopup="dialog" aria-label="View Fix My Campus case study">
                     <div class="project-top">
                         <span class="project-number">04</span>
                         <span class="project-arrow">↗</span>
@@ -229,7 +281,7 @@
                             <h4>FIX MY CAMPUS</h4>
                             <div class="project-divider"></div>
                             <p>
-                                A platform for discovering, reporting and tracking problems around campus.
+                                A campus tool for reporting local issues and keeping track of their status.
                             </p>
                             <span>CAMPUS · REPORT · TRACK</span>
                         </div>
@@ -237,9 +289,40 @@
 
                     <div class="project-info">
                         <h3>Fix My Campus</h3>
+                        <div class="project-meta">
+                            <span>Campus</span>
+                            <span>Report</span>
+                            <span>Tracking</span>
+                        </div>
                     </div>
                 </article>
             </div>
+
+            <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title">
+                <div class="dialog-shell">
+                    <button class="dialog-close" type="button" aria-label="Close project details">×</button>
+                    <p class="dialog-eyebrow">PROJECT CASE STUDY</p>
+                    <h2 id="dialog-title"></h2>
+                    <p class="dialog-intro" id="dialog-intro"></p>
+
+                    <div class="dialog-details">
+                        <article>
+                            <span>01 / CHALLENGE</span>
+                            <p id="dialog-challenge"></p>
+                        </article>
+                        <article>
+                            <span>02 / APPROACH</span>
+                            <p id="dialog-approach"></p>
+                        </article>
+                        <article>
+                            <span>03 / PROJECT FOCUS</span>
+                            <p id="dialog-focus"></p>
+                        </article>
+                    </div>
+
+                    <div class="dialog-stack" id="dialog-stack" aria-label="Project skills and technologies"></div>
+                </div>
+            </dialog>
         </div>
     </section>
 
@@ -250,7 +333,7 @@
                 Let's stay
                 <em>connected.</em>
             </h2>
-            <p class="social-description">Find me around the internet.</p>
+            <p class="social-description">For project enquiries or a conversation, reach out here.</p>
 
             <div class="social-links">
                 <a href="https://github.com/endavour01" target="_blank" rel="noopener noreferrer">
@@ -265,16 +348,16 @@
                     <small>↗</small>
                 </a>
 
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-instagram"></i>
-                    <span>Instagram</span>
+                <a href="mailto:vikalpsoni18@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email</span>
                     <small>↗</small>
                 </a>
             </div>
 
             <footer>
                 <span>© 2026 Vikalp Soni</span>
-                <span>Built with curiosity.</span>
+                <span>Designed and built by Vikalp.</span>
             </footer>
         </div>
     </section>

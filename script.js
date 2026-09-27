@@ -170,3 +170,76 @@ socialButtons.forEach((button) => {
 
 });
 
+
+/* PROJECT CASE STUDIES */
+
+const projectDialog = document.querySelector("#project-dialog");
+const projectCards = document.querySelectorAll(".project-card[data-project]");
+const dialogTitle = document.querySelector("#dialog-title");
+const dialogIntro = document.querySelector("#dialog-intro");
+const dialogChallenge = document.querySelector("#dialog-challenge");
+const dialogApproach = document.querySelector("#dialog-approach");
+const dialogFocus = document.querySelector("#dialog-focus");
+const dialogStack = document.querySelector("#dialog-stack");
+const dialogClose = document.querySelector(".dialog-close");
+
+const projectDetails = {
+    psyduck: {
+        challenge: "Bring trivia and word challenges into a quick, accessible mobile format.",
+        approach: "Build short rounds around familiar game mechanics and a straightforward interface.",
+        focus: "Game flow, mobile UX, and Google Play release management."
+    },
+    shadownet: {
+        challenge: "Communication in shadow zones can be difficult when regular networks are unavailable.",
+        approach: "Dedicated to the Indian Army, this project explores offline messaging between nearby devices over Bluetooth and Wi-Fi.",
+        focus: "Communication for shadow zones, nearby connections, and mesh networking."
+    },
+    sports: {
+        challenge: "Make it easier to find a place to play and book a session.",
+        approach: "Bring venue discovery and turf booking into one sports-focused platform.",
+        focus: "Sports facilities, venue discovery, and booking."
+    },
+    campus: {
+        challenge: "Give students a clear way to report campus issues and check their status.",
+        approach: "Keep issue reports and their updates together in one campus-focused tool.",
+        focus: "Issue reporting, status updates, and campus services."
+    }
+};
+
+function openProjectDetails(card) {
+    const details = projectDetails[card.dataset.project];
+    if (!details || !projectDialog) return;
+
+    dialogTitle.textContent = card.querySelector(".project-info h3").textContent;
+    dialogIntro.textContent = card.querySelector(".project-hover-info p").textContent.trim();
+    dialogChallenge.textContent = details.challenge;
+    dialogApproach.textContent = details.approach;
+    dialogFocus.textContent = details.focus;
+
+    dialogStack.replaceChildren(
+        ...Array.from(card.querySelectorAll(".project-meta span"), (tag) => {
+            const item = document.createElement("span");
+            item.textContent = tag.textContent;
+            return item;
+        })
+    );
+
+    projectDialog.showModal();
+}
+
+projectCards.forEach((card) => {
+    card.addEventListener("click", () => openProjectDetails(card));
+
+    card.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        openProjectDetails(card);
+    });
+});
+
+dialogClose?.addEventListener("click", () => projectDialog.close());
+
+projectDialog?.addEventListener("click", (event) => {
+    if (event.target === projectDialog) projectDialog.close();
+});
+
